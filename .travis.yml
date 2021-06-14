@@ -1,0 +1,16 @@
+language: java
+sudo: false
+install: true
+jdk: openjdk14
+env:
+  global:
+  - CODECOV_TOKEN="671f5431-b3c4-481f-a794-af4ea82af889"
+after_success: bash <(curl -s https://codecov.io/bash)
+services: postgresql
+before_script: psql -c 'create database fullstack_auth;' -U postgres
+script: mvn clean package -DskipTests=true
+notifications:
+  email:
+    recipients: aynuuu@gmail.ru
+    on_success: never
+    on_failure: always
