@@ -12,4 +12,6 @@
         <module>auth</module>
     </modules>
 
+    <packaging>pom</packaging>
+
 </project>
